@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLUE: El Misterio del Equilibrio Roto (RETO FINAL)</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+
     <style>
         /* ESTILOS GLOBALES */
         body {
-            font-family: 'Georgia', serif;
+            /* Fuente principal, fácil de leer */
+            font-family: 'Georgia', serif; 
             background-color: #0d1a26;
             color: #f4f4f9;
             line-height: 1.6;
@@ -30,12 +34,23 @@
             padding-bottom: 10px;
         }
         
+        /* ESTILOS DEL TÍTULO PRINCIPAL (TOQUE HALLOWEEN) */
+        .inicio-historia h1 {
+            font-family: 'Creepster', cursive; /* Fuente tenebrosa */
+            border-bottom: none;
+            font-size: 3.5em; /* Aumentado para mayor impacto */
+            color: #ff4500; /* Naranja/Rojo oscuro de Halloween */
+            text-shadow: 2px 2px 10px #000, 0 0 10px #ffd700; /* Efecto brillante y sombra */
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+
         /* ESTILOS DE LA PÁGINA DE INICIO (MANSIÓN) */
         .inicio-historia {
             text-align: center;
             padding: 50px 20px;
-            /* IMAGEN DE FONDO DE LA MANSIÓN EMBRUJADA */
-            background-image: url('https://wallpapers.com/images/featured-full/mansion-embrujada-ji8le7b4jvb6oxw8.jpg'); 
+            /* IMAGEN DE FONDO PERSONALIZADA (BASE64) */
+            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQBDAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAEBQIDBgABB//EADkQAAIBAwIEAwYGAgEEAwEAAAECAwAEERIhBRMxQSJRYQYUMnGBoSORscHR8EJS4RUzYvElgpIH/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAECAwT/xAAdEQEBAQACAwEBAAAAAAAAAAAAARECIRIxQSIT/9oADAMBAAIRAxEAPwD5vVoAqrpVUlyoRyNtjpYg4zWWXt5ECVmAAYbGrFAkALHY9DQqXIns2k8lORQtqLu4YOWAQdPSjRoYgOlVOmx1Dw96uUkE1FiCMyfB3q6AWUteSOTnJ2A/vyqY6kDfNe2sf4BcLhmb9ulE2kCPKWfooyaRKqYcuFITkf5Oe5J6fp96pZids7DpXryGRmc58Rqs1Yjq8rq7G4HnVHVMDQms41/4r+9ShiJYHGSegq4wZctIy9Ox6VAIMqmruT1NSRDITjHqT2q50jAxnUM9qg/i2Awo6Cgi0gUaIiVXue7f3yqo1PQK95TFtIGWPQUHtvEZnCqKMtNRul07FPIYoywtTEY2jZVPNUajvqORuB3xS+CRtPOk1CVSA4IwQaio3sLx3UuoY1HVvVSLR92y3MMUinLEFfqO35EflVPJeMrzBp1LqAPlSiKx5G9ecreiVUaarBy2MUE40x2q7Vp2A3r2IYxRKwZOrFSopijeQ70QI9Paire1bGrScVKSHTUlNURKWIxtTBV0oFUeLuaEhHjpnbpqGcUqVBLcDBGTVWEZgg/OoSQOWHHFUEEplC0p0x52Y9Caot7WnEdm3kU+FpBpQd+/lUVn4dC2kCq+N3B6VzXQeWnEc327VfK+jC/D4811XU9K95hXjLqLg4L9yN66ur2LdE8M7R1dXVV0R1dXVVEc68dxXV1B3FdbHAr2uqo51dXVFBz1dXVVHjD1roNdXUVF//Z'); 
             background-size: cover; 
             background-position: center; 
             background-repeat: no-repeat;
@@ -47,17 +62,18 @@
             justify-content: space-around;
             text-shadow: 1px 1px 5px #000; 
         }
-        .inicio-historia h1 {
-            border-bottom: none;
-            font-size: 2.8em;
-            color: #ffd700; 
-            margin-bottom: 5px;
-        }
+        
         .inicio-historia p {
-            background-color: rgba(0, 0, 0, 0.6); 
+            background-color: rgba(0, 0, 0, 0.7); /* Opacidad aumentada para legibilidad */
             padding: 10px;
             border-radius: 5px;
             margin: 10px 0;
+        }
+
+        /* Asegurando que la negrita se vea bien */
+        .inicio-historia strong, .inicio-historia b {
+            color: #ffd700; /* Amarillo/Dorado para contrastar */
+            font-weight: bold;
         }
         
         /* ESTILOS DEL JUEGO */
@@ -222,7 +238,7 @@
                         <li>**${sospechosos.B}:** El promotor del crecimiento como proceso **continuo** impulsado por la especialización y el tamaño del mercado.</li>
                     </ul>
 
-                    <p>Tu misión es resolver las 20 Pistas de Investigación, basadas en las sutilezas de sus teorías. Cada error te costará un **Castigo Económico** que deberás resolver. ¡El futuro del pensamiento económico depende de tu lógica!</p>
+                    <p>Tu misión es resolver las **20 Pistas de Investigación**, basadas en las sutilezas de sus teorías. Cada error te costará un **Castigo Económico** que deberás resolver. ¡El futuro del pensamiento económico depende de tu lógica!</p>
                     
                     <button onclick="iniciarJuego()">INICIAR INVESTIGACIÓN</button>
                 </div>
