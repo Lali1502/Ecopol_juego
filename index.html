@@ -8,7 +8,7 @@
         /* ESTILOS GLOBALES */
         body {
             font-family: 'Georgia', serif;
-            background-color: #0d1a26; /* Fondo oscuro, como la noche */
+            background-color: #0d1a26;
             color: #f4f4f9;
             line-height: 1.6;
             margin: 0;
@@ -18,14 +18,14 @@
         .container {
             max-width: 800px;
             margin: 40px auto;
-            background: #1c2b38; /* Fondo un poco más claro para el contenido del juego */
+            background: #1c2b38;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
             min-height: 500px;
         }
         h1, h2, h3 {
-            color: #ffcc00; /* Dorado viejo para el misterio */
+            color: #ffcc00;
             border-bottom: 2px solid #555;
             padding-bottom: 10px;
         }
@@ -67,17 +67,17 @@
             border-radius: 5px;
         }
         .status {
-            background-color: #3f51b5; 
+            background-color: #3f51b5;
             border: 1px solid #7986cb;
             color: white;
         }
         .pregunta {
-            background-color: #5c6bc0; 
+            background-color: #5c6bc0;
             border: 1px solid #9fa8da;
             color: white;
         }
         .error {
-            background-color: #b71c1c; 
+            background-color: #b71c1c;
             border: 1px solid #ef5350;
             color: white;
         }
@@ -88,7 +88,7 @@
             cursor: pointer;
             font-size: 18px;
             font-weight: bold;
-            background-color: #ffd700; 
+            background-color: #ffd700;
             color: #333;
             margin-top: 20px;
             transition: background-color 0.3s, transform 0.2s;
@@ -98,7 +98,7 @@
             transform: scale(1.05);
         }
         button.comodin {
-            background-color: #00796b; 
+            background-color: #00796b;
             color: white;
         }
         button.comodin:hover {
@@ -107,7 +107,7 @@
         #output {
             margin-top: 30px;
             padding: 20px;
-            background-color: #263238; 
+            background-color: #263238;
             border-radius: 5px;
             white-space: pre-wrap;
             color: #eceff1;
@@ -148,36 +148,36 @@
             B: 'Profesor Allyn A. Young (Rendimientos)'
         };
 
-        // --- 2. CONTENIDO DEL JUEGO ---
+        // --- 2. CONTENIDO DEL JUEGO (MISTERIO EXTENDIDO) ---
         const preguntasCrimen = [
-            // P1: PISTA CLAVE DE RIVALIDAD (ANTES ERA ASESINO)
-            { id: 'P1', tipo: 'Motivo Ideológico', pregunta: "Se encontró un texto de la víctima donde ridiculizaba la idea de que el crecimiento es un proceso de **desequilibrio crónico** y acumulativo. ¿A quién incrimina este móvil ideológico?", opciones: { 'A': sospechosos.A, 'B': sospechosos.B }, respuestaCorrecta: 'B', clave: 'PISTA 1 (Rivalidad)', valor: 'Rivalidad con Allyn A. Young' },
+            // P1-P16: Pistas de Coartada, Evidencia y Refuerzo (NO REVELAN ASESINO, ARMA, LUGAR O MÓVIL)
+            { id: 'P1', tipo: 'Rivalidad Ideológica', pregunta: "Se encontró un texto de la víctima donde ridiculizaba la idea de que el crecimiento es un proceso de **desequilibrio crónico** y acumulativo. ¿A quién incrimina este móvil ideológico?", opciones: { 'A': sospechosos.A, 'B': sospechosos.B }, respuestaCorrecta: 'B', clave: 'Pista 1 (Rivalidad)', valor: 'Rivalidad con Young (Desequilibrio)' },
+            { id: 'P2', tipo: 'Coartada', pregunta: "El Dr. Schumpeter alegó que estaba **financiando un nuevo proyecto** con crédito bancario. ¿Es esto una coartada sólida o un indicio de su involucramiento según su propia teoría?", opciones: { 'A': 'Indicio (La innovación requiere crédito bancario).', 'B': 'Coartada (Estaba ocupado con el capital propio).' }, respuestaCorrecta: 'A', clave: 'Pista 2 (Crédito)', valor: 'Crédito Bancario como Indicio' },
+            { id: 'P3', tipo: 'Especialización', pregunta: "Si el crimen fue perpetrado por Young, debió maximizar la **división del trabajo** en el acto. ¿Qué acción ilustra mejor la división del trabajo?", opciones: { 'A': 'La creación de un nuevo producto para el crimen.', 'B': 'La externalización de la vigilancia a un tercero.' }, respuestaCorrecta: 'B', clave: 'Pista 3 (División)', valor: 'Externalización de tareas' },
+            { id: 'P4', tipo: 'Obsesión de la Víctima', pregunta: "La víctima fue encontrada con una nota que citaba a Marshall: 'El crecimiento viene de fuera'. ¿Qué teórico fue la **obsesión** principal del Dr. Equilibrio al defender que el crecimiento viene **de dentro**?", opciones: { 'A': sospechosos.A, 'B': sospechosos.B }, respuestaCorrecta: 'A', clave: 'Pista 4 (Obsesión)', valor: 'Endogeneidad del Desarrollo' },
+            { id: 'P5', tipo: 'Equilibrio', pregunta: "El asesino dejó un diagrama de curvas de indiferencia inclinadas. Según Young, este hallazgo implica que el Dr. Equilibrio buscaba: ", opciones: { 'A': 'Rendimientos crecientes.', 'B': 'Sustitución de factores por el mismo costo.' }, respuestaCorrecta: 'B', clave: 'Pista 5 (Isocostos)', valor: 'Sustitución en Isocostos' },
+            { id: 'P6', tipo: 'Estática', pregunta: "Schumpeter separa **crecimiento** de **desenvolvimiento**. ¿Qué fenómeno económico representa el simple crecimiento que Schumpeter considera dentro de la 'estática'?", opciones: { 'A': 'La innovación tecnológica.', 'B': 'El aumento de la población.' }, respuestaCorrecta: 'B', clave: 'Pista 6 (Estática)', valor: 'Aumento Demográfico' },
+            { id: 'P7', tipo: 'Demanda', pregunta: "Según la nota (4) de Young, para que un avance sea ventajoso, debe **modificar favorablemente** la curvatura de las curvas de isocostos. ¿Qué implica esto?", opciones: { 'A': 'Solo un cambio en el precio de los factores.', 'B': 'Un cambio en las elasticidades relativas.' }, respuestaCorrecta: 'B', clave: 'Pista 7 (Curvatura)', valor: 'Cambio en Elasticidades' },
+            { id: 'P8', tipo: 'Tecnología', pregunta: "Si Schumpeter fue el asesino, el crimen fue un acto de **Destrucción Creadora**. ¿Qué destruye este acto en el proceso?", opciones: { 'A': 'El capital de la competencia.', 'B': 'Las estructuras económicas obsoletas.' }, respuestaCorrecta: 'B', clave: 'Pista 8 (Destrucción)', valor: 'Estructuras Obsoletas' },
+            { id: 'P9', tipo: 'Retornos', pregunta: "Young sostiene que el progreso es el resultado de la evolución del proceso productivo, ¿pero cuál es la **causa del progreso** en su teoría?", opciones: { 'A': 'La simple acumulación de capital.', 'B': 'El progreso es la causa del progreso.' }, respuestaCorrecta: 'B', clave: 'Pista 9 (Causa)', valor: 'Progreso Autocausado' },
+            { id: 'P10', tipo: 'Monopolio', pregunta: "Schumpeter defendía el **monopolio temporal** de la innovación. El Dr. Equilibrio fue asesinado justo después de defender la competencia perfecta. ¿Qué justifica Schumpeter en el monopolio?", opciones: { 'A': 'Permite la distribución justa de la renta.', 'B': 'Asegura las ganancias extraordinarias para innovar.' }, respuestaCorrecta: 'B', clave: 'Pista 10 (Monopolio)', valor: 'Ganancias Extraordinarias' },
+            { id: 'P11', tipo: 'Desequilibrio', pregunta: "Young enfatiza que el crecimiento es un proceso de **desequilibrio continuo** y no de ajustes a nuevos equilibrios. ¿Qué implica esto para el rol del mercado?", opciones: { 'A': 'El mercado siempre tiende a corregir fallos.', 'B': 'El mercado opera en un desajuste permanente.' }, respuestaCorrecta: 'B', clave: 'Pista 11 (Mercado)', valor: 'Desajuste Permanente' },
+            { id: 'P12', tipo: 'Empresario', pregunta: "El empresario schumpeteriano no es un administrador, sino un **héroe**. ¿Qué función principal lo diferencia del simple capitalista?", opciones: { 'A': 'El manejo eficiente del capital.', 'B': 'La combinación de factores de forma nueva.' }, respuestaCorrecta: 'B', clave: 'Pista 12 (Héroe)', valor: 'Nueva Combinación de Factores' },
+            { id: 'P13', tipo: 'Externalidades', pregunta: "El crimen involucró una **externalidad positiva** al sector de la vigilancia. Según Young, este fenómeno es crucial para...", opciones: { 'A': 'Convertir rendimientos internos en rendimientos externos.', 'B': 'Estabilizar los ciclos económicos.' }, respuestaCorrecta: 'A', clave: 'Pista 13 (Externalidad)', valor: 'Retornos de Escala Externos' },
+            { id: 'P14', tipo: 'Ciclos', pregunta: "Schumpeter vincula el **ciclo económico** a los *clusters* de innovación. ¿Qué fase del ciclo es causada por la implementación masiva de innovaciones?", opciones: { 'A': 'La depresión.', 'B': 'El auge.' }, respuestaCorrecta: 'B', clave: 'Pista 14 (Ciclo)', valor: 'El Auge del Ciclo' },
+            { id: 'P15', tipo: 'Límite', pregunta: "Young cita a Smith: La división del trabajo es limitada por el tamaño del mercado. ¿Qué factor **no** limita la división del trabajo según Young?", opciones: { 'A': 'El potencial humano.', 'B': 'La magnitud de la demanda.' }, respuestaCorrecta: 'A', clave: 'Pista 15 (Límite)', valor: 'Potencial Humano (No Limitante)' },
+            { id: 'P16', tipo: 'Dinero', pregunta: "El Dr. Equilibrio fue asfixiado con un billete que representaba el **dinero estático**. ¿Qué representa el dinero dinámico en Schumpeter?", opciones: { 'A': 'Un medio de cambio neutral.', 'B': 'Un vehículo de transferencia de poder de compra (crédito).' }, respuestaCorrecta: 'B', clave: 'Pista 16 (Dinero)', valor: 'Crédito Dinámico' },
             
-            // P2-P3: Pistas principales restantes
-            { id: 'P2', tipo: 'Arma', pregunta: "El arma del crimen fue usada para eliminar la **corriente circular** del estado de reposo, forzando un cambio cualitativo. ¿Qué concepto representa el arma?", opciones: { 'A': 'La Innovación (Destrucción Creadora)', 'B': 'La División del Trabajo (Especialización)' }, respuestaCorrecta: 'A', clave: 'ARMA', valor: 'Innovación (Destrucción Creadora)' },
-            { id: 'P3', tipo: 'Lugar', pregunta: "El crimen ocurrió en el lugar donde los rendimientos decrecientes actuaban como **el principal obstáculo** al crecimiento. ¿Qué elemento limitaba la acción del asesino según su propia teoría?", opciones: { 'A': 'El escaso pool de capital disponible.', 'B': 'La inelasticidad relativa de la demanda.' }, respuestaCorrecta: 'B', clave: 'LUGAR', valor: 'Sala de la Inelasticidad Relativa' },
+            // P17: REVELA EL ARMA
+            { id: 'P17', tipo: 'Arma del Crimen', pregunta: "El arma del crimen fue usada para eliminar la **corriente circular** del estado de reposo, forzando un cambio cualitativo. ¿Qué concepto representa el arma?", opciones: { 'A': 'La Innovación (Destrucción Creadora)', 'B': 'La División del Trabajo (Especialización)' }, respuestaCorrecta: 'A', clave: 'ARMA', valor: 'Innovación (Destrucción Creadora)' },
             
-            // P4: PISTA CLAVE DE OBSESIÓN (ANTES ERA MÓVIL)
-            { id: 'P4', tipo: 'Obsesión de la Víctima', pregunta: "La víctima fue encontrada con una nota que citaba a Marshall: 'El crecimiento viene de fuera'. ¿Qué teórico fue la **obsesión** principal del Dr. Equilibrio al defender que el crecimiento viene **de dentro**?", opciones: { 'A': sospechosos.A, 'B': sospechosos.B }, respuestaCorrecta: 'A', clave: 'MÓVIL', valor: 'La Endogeneidad del Desarrollo (Schumpeter)' },
+            // P18: REVELA EL LUGAR
+            { id: 'P18', tipo: 'Lugar del Crimen', pregunta: "El crimen ocurrió en el lugar donde los rendimientos decrecientes actuaban como **el principal obstáculo** al crecimiento. ¿Qué elemento limitaba la acción del asesino según su propia teoría?", opciones: { 'A': 'El escaso pool de capital disponible.', 'B': 'La inelasticidad relativa de la demanda.' }, respuestaCorrecta: 'B', clave: 'LUGAR', valor: 'Sala de la Inelasticidad Relativa' },
             
-            // P5-P19: Pistas de refuerzo y coartadas complejas
-            { id: 'P5', tipo: 'Coartada', pregunta: "El Dr. Schumpeter alegó que estaba **financiando un nuevo proyecto** con crédito bancario. ¿Es esto una coartada sólida o un indicio de su involucramiento según su propia teoría?", opciones: { 'A': 'Indicio (La innovación requiere crédito bancario).', 'B': 'Coartada (Estaba ocupado con el capital propio).' }, respuestaCorrecta: 'A', clave: 'PISTA 5 (Crédito)', valor: 'Crédito Bancario como Indicio' },
-            { id: 'P6', tipo: 'Especialización', pregunta: "Si el crimen fue perpetrado por Young, debió maximizar la **división del trabajo** en el acto. ¿Qué acción ilustra mejor la división del trabajo?", opciones: { 'A': 'La creación de un nuevo producto para el crimen.', 'B': 'La externalización de la vigilancia a un tercero.' }, respuestaCorrecta: 'B', clave: 'PISTA 6 (División)', valor: 'Externalización de tareas' },
-            { id: 'P7', tipo: 'Equilibrio', pregunta: "El asesino dejó un diagrama de curvas de indiferencia inclinadas. Según Young, este hallazgo implica que el Dr. Equilibrio buscaba: ", opciones: { 'A': 'Rendimientos crecientes.', 'B': 'Sustitución de factores por el mismo costo.' }, respuestaCorrecta: 'B', clave: 'PISTA 7 (Isocostos)', valor: 'Sustitución en Isocostos' },
-            { id: 'P8', tipo: 'Estática', pregunta: "Schumpeter separa **crecimiento** de **desenvolvimiento**. ¿Qué fenómeno económico representa el simple crecimiento que Schumpeter considera dentro de la 'estática'?", opciones: { 'A': 'La innovación tecnológica.', 'B': 'El aumento de la población.' }, respuestaCorrecta: 'B', clave: 'PISTA 8 (Estática)', valor: 'Aumento Demográfico' },
-            { id: 'P9', tipo: 'Demanda', pregunta: "Según la nota (4) de Young, para que un avance sea ventajoso, debe **modificar favorablemente** la curvatura de las curvas de isocostos. ¿Qué implica esto?", opciones: { 'A': 'Solo un cambio en el precio de los factores.', 'B': 'Un cambio en las elasticidades relativas.' }, respuestaCorrecta: 'B', clave: 'PISTA 9 (Curvatura)', valor: 'Cambio en Elasticidades' },
-            { id: 'P10', tipo: 'Tecnología', pregunta: "Si Schumpeter fue el asesino, el crimen fue un acto de **Destrucción Creadora**. ¿Qué destruye este acto en el proceso?", opciones: { 'A': 'El capital de la competencia.', 'B': 'Las estructuras económicas obsoletas.' }, respuestaCorrecta: 'B', clave: 'PISTA 10 (Destrucción)', valor: 'Estructuras Obsoletas' },
-            { id: 'P11', tipo: 'Retornos', pregunta: "Young sostiene que el progreso es el resultado de la evolución del proceso productivo, ¿pero cuál es la **causa del progreso** en su teoría?", opciones: { 'A': 'La simple acumulación de capital.', 'B': 'El progreso es la causa del progreso.' }, respuestaCorrecta: 'B', clave: 'PISTA 11 (Causa)', valor: 'Progreso Autocausado' },
-            { id: 'P12', tipo: 'Monopolio', pregunta: "Schumpeter defendía el **monopolio temporal** de la innovación. El Dr. Equilibrio fue asesinado justo después de defender la competencia perfecta. ¿Qué justifica Schumpeter en el monopolio?", opciones: { 'A': 'Permite la distribución justa de la renta.', 'B': 'Asegura las ganancias extraordinarias para innovar.' }, respuestaCorrecta: 'B', clave: 'PISTA 12 (Monopolio)', valor: 'Ganancias Extraordinarias' },
-            { id: 'P13', tipo: 'Desequilibrio', pregunta: "Young enfatiza que el crecimiento es un proceso de **desequilibrio continuo** y no de ajustes a nuevos equilibrios. ¿Qué implica esto para el rol del mercado?", opciones: { 'A': 'El mercado siempre tiende a corregir fallos.', 'B': 'El mercado opera en un desajuste permanente.' }, respuestaCorrecta: 'B', clave: 'PISTA 13 (Mercado)', valor: 'Desajuste Permanente' },
-            { id: 'P14', tipo: 'Empresario', pregunta: "El empresario schumpeteriano no es un administrador, sino un **héroe**. ¿Qué función principal lo diferencia del simple capitalista?", opciones: { 'A': 'El manejo eficiente del capital.', 'B': 'La combinación de factores de forma nueva.' }, respuestaCorrecta: 'B', clave: 'PISTA 14 (Héroe)', valor: 'Nueva Combinación de Factores' },
-            { id: 'P15', tipo: 'Externalidades', pregunta: "El crimen involucró una **externalidad positiva** al sector de la vigilancia. Según Young, este fenómeno es crucial para...", opciones: { 'A': 'Convertir rendimientos internos en rendimientos externos.', 'B': 'Estabilizar los ciclos económicos.' }, respuestaCorrecta: 'A', clave: 'PISTA 15 (Externalidad)', valor: 'Retornos de Escala Externos' },
-            { id: 'P16', tipo: 'Ciclos', pregunta: "Schumpeter vincula el **ciclo económico** a los *clusters* de innovación. ¿Qué fase del ciclo es causada por la implementación masiva de innovaciones?", opciones: { 'A': 'La depresión.', 'B': 'El auge.' }, respuestaCorrecta: 'B', clave: 'PISTA 16 (Ciclo)', valor: 'El Auge del Ciclo' },
-            { id: 'P17', tipo: 'Límite', pregunta: "Young cita a Smith: La división del trabajo es limitada por el tamaño del mercado. ¿Qué factor **no** limita la división del trabajo según Young?", opciones: { 'A': 'El potencial humano.', 'B': 'La magnitud de la demanda.' }, respuestaCorrecta: 'A', clave: 'PISTA 17 (Límite)', valor: 'Potencial Humano (No Limitante)' },
-            { id: 'P18', tipo: 'Dinero', pregunta: "El Dr. Equilibrio fue asfixiado con un billete que representaba el **dinero estático**. ¿Qué representa el dinero dinámico en Schumpeter?", opciones: { 'A': 'Un medio de cambio neutral.', 'B': 'Un vehículo de transferencia de poder de compra (crédito).' }, respuestaCorrecta: 'B', clave: 'PISTA 18 (Dinero)', valor: 'Crédito Dinámico' },
-            { id: 'P19', tipo: 'Cambio', pregunta: "Según Young, si -dy/dx aumenta en relación con y/x en las curvas de indiferencia, la amplitud del movimiento en la dirección de P1 **se incrementa**. ¿Qué principio microeconómico avanzado describe esta relación?", opciones: { 'A': 'Elasticidad de sustitución.', 'B': 'Tasa marginal de sustitución decreciente.' }, respuestaCorrecta: 'A', clave: 'PISTA 19 (Isocostos II)', valor: 'Elasticidad de Sustitución' },
-            
-            // P20: ¡PISTA FINAL REVELA EL ASESINO!
+            // P19: REVELA EL MÓVIL
+            { id: 'P19', tipo: 'El Móvil Clave', pregunta: "Según Young, si -dy/dx aumenta en relación con y/x en las curvas de indiferencia, la amplitud del movimiento en la dirección de P1 **se incrementa**. ¿Qué principio microeconómico avanzado describe esta relación que fue la **causa raíz** del crimen?", opciones: { 'A': 'Elasticidad de sustitución.', 'B': 'Tasa marginal de sustitución decreciente.' }, respuestaCorrecta: 'A', clave: 'MÓVIL', valor: 'Elasticidad de Sustitución' },
+
+            // P20: REVELA EL ASESINO (Misterio final)
             { id: 'P20', tipo: 'El Culpable', pregunta: "Tras resolver todas las pistas, la única teoría que es la antítesis del Equilibrio es la que rige el crimen. ¿Quién, según la lógica del **desequilibrio continuo** forzado por el mercado, **debe ser** el asesino?", opciones: { 'A': sospechosos.A, 'B': sospechosos.B }, respuestaCorrecta: 'B', clave: 'ASESINO', valor: 'Profesor Allyn A. Young' }
         ];
 
