@@ -6,78 +6,95 @@
 <title>CLUE: El Misterio del Equilibrio Roto (RETO FINAL)</title>
 <style>
 body {
-    font-family: 'Georgia', serif;
-    background-color: #0d1a26;
-    color: #f4f4f9;
-    margin: 0;
-    padding: 0;
+  font-family: 'Georgia', serif;
+  background-color: #0b0b12;
+  background-image: url('https://i.imgur.com/fjlVjDR.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+  text-shadow: 1px 1px 4px #000;
 }
 .container {
-    max-width: 800px;
-    margin: 40px auto;
-    background: #1c2b38;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 25px rgba(255,255,255,0.1);
-    min-height: 500px;
+  max-width: 850px;
+  margin: 60px auto;
+  background: rgba(15, 15, 25, 0.9);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
+  min-height: 500px;
 }
 h1, h2, h3 {
-    color: #ffcc00;
-    border-bottom: 2px solid #555;
-    padding-bottom: 10px;
+  color: #ff7518;
+  text-shadow: 0 0 8px #ffcc00;
+  font-weight: bold;
+  border-bottom: 2px solid #ffcc00;
+  padding-bottom: 10px;
 }
 button {
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: #ffd700;
-    color: #333;
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: 15px;
-    transition: 0.3s;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #ffcc00;
+  color: #222;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 15px;
+  transition: all 0.3s ease;
 }
 button:hover {
-    background-color: #ffc107;
-    transform: scale(1.05);
+  background-color: #ffa500;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffcc00;
 }
 button.comodin {
-    background-color: #00796b;
-    color: white;
+  background-color: #4b0082;
+  color: white;
 }
 button.comodin:hover {
-    background-color: #004d40;
+  background-color: #6a0dad;
 }
 .inicio-historia {
-    text-align: center;
-    padding: 50px 20px;
-    background-image: url('https://i.imgur.com/f3Gj0t2.png');
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    color: white;
-    text-shadow: 1px 1px 5px #000;
+  text-align: center;
+  padding: 60px 20px;
+  background-image: url('https://i.imgur.com/zXgQvZK.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  color: #fff;
+  text-shadow: 2px 2px 6px #000;
 }
 .pregunta, .error, .status {
-    margin-bottom: 20px;
-    padding: 15px;
-    border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 5px;
 }
 .pregunta {
-    background: #5c6bc0;
-    border: 1px solid #9fa8da;
+  background: rgba(255, 165, 0, 0.2);
+  border: 1px solid #ffcc80;
 }
 .error {
-    background: #b71c1c;
-    border: 1px solid #ef5350;
+  background: rgba(139, 0, 0, 0.6);
+  border: 1px solid #ff4d4d;
 }
 #output {
-    margin-top: 20px;
-    padding: 15px;
-    background: #263238;
-    border-radius: 5px;
-    white-space: pre-wrap;
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(40, 40, 60, 0.8);
+  border-radius: 5px;
+  white-space: pre-wrap;
+  color: #ffcc80;
+  font-weight: bold;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  margin: 5px 0;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -125,12 +142,12 @@ const bancoCastigos = [
 function mostrarHistoria(){
   document.getElementById('game-area').innerHTML=`
     <div class="inicio-historia">
-      <h1>CLUE: El Misterio del Equilibrio Roto</h1>
+      <h1><b>CLUE: El Misterio del Equilibrio Roto</b></h1>
       <p><em>En la Mansión de la Economía, el Dr. Equilibrio ha sido asesinado.</em></p>
-      <p>Resuelve las pistas y descubre al culpable entre:</p>
-      <ul style="text-align:left; max-width:400px; margin:auto; list-style:none;">
-        <li><strong>${sospechosos.A}</strong></li>
-        <li><strong>${sospechosos.B}</strong></li>
+      <p><b>Resuelve las pistas y descubre al culpable entre:</b></p>
+      <ul>
+        <li>${sospechosos.A}</li>
+        <li>${sospechosos.B}</li>
       </ul>
       <button onclick="iniciarJuego()">Iniciar Investigación</button>
     </div>`;
@@ -140,8 +157,8 @@ function mostrarHistoria(){
 function iniciarJuego(){ mostrarPreguntaCrimen(0); }
 function actualizarStatus(){
   const disp=Object.keys(comodinesUsados).filter(c=>!comodinesUsados[c])
-    .map(c=>`<span style="color:#ffcc00">${comodinesMapa[c]}</span>`).join(', ')||'Agotados';
-  const pistas=Object.entries(pistasCrimen).map(([k,v])=>`${k}: ${v}`).join('; ')||'Ninguna';
+    .map(c=>`<span style="color:#ffcc00"><b>${comodinesMapa[c]}</b></span>`).join(', ')||'Agotados';
+  const pistas=Object.entries(pistasCrimen).map(([k,v])=>`<b>${k}</b>: ${v}`).join('; ')||'Ninguna';
   document.getElementById('status').innerHTML=
     `<h3>Estado</h3><p>Pistas: ${preguntasCrimenRespondidas}/${preguntasCrimen.length}</p>
      <p>${pistas}</p><p>Comodines: ${disp}</p>`;
@@ -177,36 +194,35 @@ function manejarRespuestaCrimen(resp,i){
   if(resp===p.respuestaCorrecta){
     pistasCrimen[p.clave]=p.valor;
     preguntasCrimenRespondidas++;
-    document.getElementById('output').innerHTML="✅ Correcto";
+    document.getElementById('output').innerHTML="✅ <b>Correcto</b>";
     mostrarPreguntaCrimen(i+1);
   }else{
     const castigo=obtenerNuevoCastigo();
-    document.getElementById('output').innerHTML="❌ Incorrecto";
+    document.getElementById('output').innerHTML="❌ <b>Incorrecto</b>";
     mostrarCastigo(castigo);
   }
 }
 function manejarRespuestaCastigo(resp){
   if(resp===castigoActual.respuestaCorrecta){
-    document.getElementById('output').innerHTML="✅ Castigo superado";
+    document.getElementById('output').innerHTML="✅ <b>Castigo superado</b>";
     mostrarPreguntaCrimen(pistaIndex+1);
   }else{
-    document.getElementById('output').innerHTML="💀 Fallaste definitivamente.";
+    document.getElementById('output').innerHTML="💀 <b>Fallaste definitivamente.</b>";
     finDelJuego(true);
   }
 }
 function usarComodin(nombre){
   if(comodinesUsados[nombre])return;
   comodinesUsados[nombre]=true;
-  document.getElementById('output').innerHTML=`🧠 Usaste el comodín: ${comodinesMapa[nombre]}`;
+  document.getElementById('output').innerHTML=`🧠 <b>Usaste el comodín:</b> ${comodinesMapa[nombre]}`;
 }
 function finDelJuego(derrota){
   document.getElementById('game-area').innerHTML=derrota?
-    `<h2>💀 DERROTA</h2><p>El equilibrio te venció.</p><button onclick="mostrarHistoria()">Reintentar</button>`:
-    `<h2>🏆 VICTORIA</h2><p>Resolviste el misterio: ${pistasCrimen.ASESINO}, ${pistasCrimen.ARMA}, ${pistasCrimen.LUGAR}, ${pistasCrimen.MOVIL}.</p>
+    `<h2>💀 <b>DERROTA</b></h2><p>El equilibrio te venció.</p><button onclick="mostrarHistoria()">Reintentar</button>`:
+    `<h2>🏆 <b>VICTORIA</b></h2><p>Resolviste el misterio: ${pistasCrimen.ASESINO}, ${pistasCrimen.ARMA}, ${pistasCrimen.LUGAR}, ${pistasCrimen.MOVIL}.</p>
      <button onclick="mostrarHistoria()">Jugar de nuevo</button>`;
 }
 mostrarHistoria();
 </script>
 </body>
 </html>
-
