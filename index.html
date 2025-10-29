@@ -34,18 +34,18 @@
         .inicio-historia {
             text-align: center;
             padding: 50px 20px;
-            /* Nota: Si quieres cambiar la imagen, reemplaza la URL a continuación. 
-               Esta es una imagen de stock de una mansión misteriosa */
-            background-image: url('https://i.imgur.com/f3Gj0t2.png'); 
-            background-size: cover;
-            background-position: center;
-            color: white;
+            /* ¡NUEVA IMAGEN DE FONDO DE LA MANSIÓN EMBRUJADA! */
+            background-image: url('https://wallpapers.com/images/featured-full/mansion-embrujada-ji8le7b4jvb6oxw8.jpg'); 
+            background-size: cover; /* Asegura que la imagen cubra todo el espacio */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat;
+            color: white; /* Color del texto sobre la imagen */
             border-radius: 8px;
             min-height: 400px;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            text-shadow: 1px 1px 5px #000;
+            text-shadow: 1px 1px 5px #000; /* Sombra para que el texto sea más legible */
         }
         .inicio-historia h1 {
             border-bottom: none;
@@ -148,7 +148,7 @@
             B: 'Profesor Allyn A. Young (Rendimientos)'
         };
 
-        // --- 2. CONTENIDO DEL JUEGO (Mismo contenido, alta complejidad) ---
+        // --- 2. CONTENIDO DEL JUEGO ---
         const preguntasCrimen = [
             // P1-P4: Pistas principales (Asesino, Arma, Lugar, Móvil)
             { id: 'P1', tipo: 'Asesino', pregunta: "Se encontró un texto de la víctima donde ridiculizaba la idea de que el crecimiento es un proceso de **desequilibrio crónico** y acumulativo. ¿A quién incrimina este móvil ideológico?", opciones: { 'A': sospechosos.A, 'B': sospechosos.B }, respuestaCorrecta: 'B', clave: 'ASESINO', valor: 'Profesor Allyn A. Young' },
